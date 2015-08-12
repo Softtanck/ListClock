@@ -1,19 +1,17 @@
 package com.softtanck.listclock.view;
 
 import android.content.Context;
-import android.database.ContentObserver;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.provider.Settings;
 import android.util.AttributeSet;
-import android.widget.DigitalClock;
+import android.widget.TextView;
 
 /**
  * @author : Tanck
- * @Description : TODO 适配中的倒计时,性能优化,复用机制
+ * @Description : TODO 适配中的倒计时,性能优化,复用机制 参考了DigitalClock
  * @date 8/12/2015
  */
-public class ClockView extends DigitalClock {
+public class ClockView extends TextView {
 
     private boolean mTickerStopped;
     private Handler mHandler;
