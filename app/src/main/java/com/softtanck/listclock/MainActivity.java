@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements AbsListView.OnScr
         setContentView(R.layout.activity_main);
         listView = (ListView) findViewById(R.id.lv);
         tims = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 5000; i++) {
             tims.add(getRandomTime());
         }
         adapter = new ClockAdapter(MainActivity.this,tims);
