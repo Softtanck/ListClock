@@ -123,6 +123,8 @@ public class ClockView extends TextView {
         mTickerStopped = !mTickerStopped;
         if (!mTickerStopped) {
             mHandler.post(mTicker);
+        }else{
+            mHandler.removeCallbacks(mTicker);
         }
     }
 
