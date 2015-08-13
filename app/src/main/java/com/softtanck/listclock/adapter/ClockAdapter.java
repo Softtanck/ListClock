@@ -52,6 +52,7 @@ public class ClockAdapter extends BaseAdapter {
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
+            holder.cv.changeTicker();
         }
         holder.cv.setEndTime(mTimes.get(position));
         return convertView;

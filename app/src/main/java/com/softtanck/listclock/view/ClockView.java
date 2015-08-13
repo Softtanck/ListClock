@@ -1,9 +1,12 @@
 package com.softtanck.listclock.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Rect;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.TextView;
 
 /**
@@ -51,6 +54,7 @@ public class ClockView extends TextView {
         super.onAttachedToWindow();
         mHandler = new Handler();
 
+        getVisibility();
         /**
          * requests a tick on the next hard-second boundary
          */
@@ -106,9 +110,20 @@ public class ClockView extends TextView {
     }
 
     @Override
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         mTickerStopped = true;
+    }
+
+
+    /**
+     * 回收后启动
+     */
+    public void changeTicker() {
+        mTickerStopped = !mTickerStopped;
+        if (!mTickerStopped) {
+            mHandler.post(mTicker);
+        }
     }
 
     /**
